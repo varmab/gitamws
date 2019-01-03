@@ -1,0 +1,161 @@
+<html>
+    <head>  
+        <title>Gitam Workshop</title>
+        <script>
+            var myName="Varma";
+            console.log("Welcome to " +myName)
+            //alert("Hello")
+
+            var age=46;
+            var isStudent=false;
+
+            age="Fourty Six"
+
+            var college;
+
+
+            
+            var student={
+                name:"Varma",
+                age:46,
+                isStudent:false,
+                "college name":"gitam"
+            }
+
+
+            var color="red";
+
+            if(color=="red"){
+                console.log("red");
+            }
+            else if(color=="black"){
+                console.log("black")
+            }
+            else
+            {
+                console.log("unknown");
+            }
+
+            var count;
+
+            if(count){
+
+            }
+            else
+            {
+
+            }
+
+            (color=="red") ? console.log("red") : console.log("unknown")
+
+            switch(color){
+                case color=="red":
+                    console.log("Red");
+                    break;
+                case color=="black":
+                    console.log("black");
+                    break;
+                case color=="green":
+                    console.log("green");
+                    break;
+                default:
+                    console.log("unknown")
+            }
+
+//hoisting
+
+
+            console.log(add(1,2));
+
+            //function declaration
+            function add(a,b){
+                return a+b;
+            }
+            
+
+            //function expression
+            var sum=function(a,b){
+                return a+b;
+            }
+            console.log(sum(1,2));
+
+
+            var myNumbers=["one","two","three"];
+
+            myNumbers.forEach(function(value,position){
+                console.log(value + " at " + position)
+            })
+
+            var movies=[
+                {
+                    id:1,
+                    title:"Bahubali",
+                    actor:"Prabhas",
+                    theaters:["A","B"],
+                    revenue:200
+                },
+                {
+                    id:2,
+                    title:"Adhurs",
+                    actor:"NTR",
+                    theaters:["B","C"],
+                    revenue:500
+                },
+                {
+                    id:3,
+                    title:"Kushi",
+                    actor:"Pavan",
+                    theaters:["D","E"],
+                    revenue:200
+                }
+            ]
+
+            var isAny100LessMovie=movies.some(function(movie){
+                return movie.revenue<100;
+            })
+
+            var moviesWith200Cr=movies.filter(function(movie){
+                return movie.revenue==200
+            })
+
+            var actors=movies.map(function(movie){
+                return movie.actor;
+            })
+
+            var totalRevenue=movies.reduce(function(total,movie){
+                return total+movie.revenue;
+            },0)
+            console.log(totalRevenue)
+
+            var actorsList=movies.reduce(function(actors,movie){
+                return actors + "," + movie.actor
+            },'')
+
+            /*
+                {
+                    "Bahubali":"Prabhas",
+                    "Adhurs":"NTR",
+                    "Kushi":"Pavan"
+                }
+
+            */
+
+            var actorTitles=movies.reduce(function(actorTitles,movie){
+                actorTitles[movie.title]=movie.actor;
+                return actorTitles;
+            },{})
+
+            var person={
+                name:"Varma"
+            }
+
+            person.age=46;
+
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to Gitam Workshop</h1>
+    </body>
+</html>
