@@ -1,6 +1,7 @@
 // (example) Write a function that accepts two number arguments and adds them
 // together.
-var add = function () {
+var add = function (a,b) {
+    return a+b;
 };
 
 
@@ -9,7 +10,8 @@ var add = function () {
 //
 //     var preTaxTotal = totalCost(5, 5.99); // 5 items at 5.99
 //     //=> 29.950000000000003
-var totalCost = function () {
+var totalCost = function (qty,cost) {
+    return qty * cost;
 };
 
 

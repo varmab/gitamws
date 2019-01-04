@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to Gitam Website</h1>
+        <ul></ul>
+    </body>
+</html>
+
+<script>
+    $.ajax({
+        url:"http://localhost:8000/api/students",
+        method:"get",
+        success:function(students){
+            students.forEach((student)=>{
+                $("ul").append("<li>" + student.name + "</li>" )
+            })
+        },
+        error:function(err){
+            alert(err)
+        }
+    })
+
+</script>
