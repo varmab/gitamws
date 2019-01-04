@@ -1,6 +1,7 @@
 <html>
     <head>  
         <title>Gitam Workshop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             var myName="Varma";
             console.log("Welcome to " +myName)
@@ -151,11 +152,76 @@
 
             person.age=46;
 
+            
+
+
 
 
         </script>
     </head>
     <body>
         <h1>Welcome to Gitam Workshop</h1>
+        <div>Div 1</div>
+        <div class="highlight">Div 2</div>
+        <div id="third">Div 3</div>
+        <div class="highlight">Div 4</div>
+        <button>Say Hello</button>
     </body>
 </html>
+
+<script>
+    var h1=document.querySelector("h1"); //SELECT
+    h1.style.color="red"; //Manipulate
+
+    //
+    var p=document.getElementById("first")
+    var p=document.querySelector("#first")
+    var p=document.querySelector(".special")
+    var p=document.querySelector("p")
+
+    // var button=document.querySelector("button")
+
+    // button.addEventListener("click",function(){
+    //     var body=document.querySelector("body");
+    //     body.style.backgroundColor="red";
+    // })
+
+    // h1.addEventListener("mouseover",function(){
+    //     h1.textContent="Thank you for coming";
+    // })
+
+    // h1.addEventListener("mouseout",function(){
+    //     h1.textContent="Welcome to Gitam Workshop";
+    // })
+    
+
+    var myFirstName="Varma"
+    var myLastName="B"
+    var dNo="44-45-34"
+    var city="Vizag"
+    var postalCode="500072"
+
+    var shippingLabel=myFirstName + myLastName + "\n" 
+                    + dNo + "\n" 
+                    + city + "\n"
+                    + postalCode;
+
+    var newLable=`
+        ${myFirstName}
+        ${dNo}
+        ${city},
+        ${postalCode}
+    `
+
+    var addTwo=a=>a+1;
+
+    $("div").css("background-color","purple")
+    $(".highlight").css("width","200px")
+    $("#third").css("border","1px solid red")
+
+    $('button').on('click', function(){
+        alert("button clicked!");
+    });
+
+    
+</script>
