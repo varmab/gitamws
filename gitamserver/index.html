@@ -4,22 +4,62 @@
     </head>
     <body>
         <h1>Welcome to Gitam Website</h1>
+        <input type="text" id="name"/>
+        <button id="addStudent">Add Student</button>
         <ul></ul>
     </body>
 </html>
 
 <script>
-    $.ajax({
-        url:"http://localhost:8000/api/students",
-        method:"get",
-        success:function(students){
-            students.forEach((student)=>{
-                $("ul").append("<li>" + student.name + "</li>" )
-            })
-        },
-        error:function(err){
-            alert(err)
-        }
+    //Load all students
+    function loadAllStudents(){
+        $.ajax({
+            url:"http://localhost:8000/api/students",
+            method:"get",
+            success:function(students){
+                students.forEach((student)=>{
+                    $("ul").append("<li>" + student.name + " <button onclick=javascript:deleteStudent(\"" + student._id + "\")>Delete</button></li>" )
+                })
+            },
+            error:function(err){
+                alert(err)
+            }
+        })
+    }
+    
+
+    function deleteStudent(id){
+        $.ajax({
+            url:"http://localhost:8000/api/students/" + id,
+            method:"delete",
+            dataType: 'json',
+            success:function(student){
+                alert(student.name + " is deleted from DB")
+                $("ul").empty();
+                loadAllStudents();
+            },
+            error:function(err){
+                alert(err)
+            }
+        })
+    }
+
+    $("button").on("click",function(){
+        var name=$("#name").val();
+        $.ajax({
+            url:"http://localhost:8000/api/students",
+            method:"post",
+            dataType: 'json',
+            data:"name=" + name,
+            success:function(student){
+                $("ul").append("<li>" + student.name + " <button onclick=deleteStudent(\"" + student._id + "\")>Delete</button></li>" )
+            },
+            error:function(err){
+                alert(err)
+            }
+        })
     })
+
+    loadAllStudents();
 
 </script>
